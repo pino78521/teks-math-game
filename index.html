@@ -7,9 +7,23 @@
 </head>
 <body>
   <div class="container">
-    <h1>TEKS Math Game - Teacher Mode</h1>
+    <h1>TEKS Math Game</h1>
 
-    <div id="teacher-settings">
+    <div id="student-info">
+      <h3>Student Information</h3>
+      <label for="student-name">Name:</label>
+      <input type="text" id="student-name" placeholder="Enter your name" />
+
+      <label for="student-id">Student ID:</label>
+      <input type="text" id="student-id" placeholder="Enter your ID" />
+
+      <label for="teacher-email">Teacher's Email:</label>
+      <input type="email" id="teacher-email" placeholder="Enter teacher's email" />
+
+      <button class="btn primary" onclick="goToTeacherSettings()">Continue</button>
+    </div>
+
+    <div id="teacher-settings" style="display:none;">
       <h3>Teacher Settings</h3>
       <label for="teks-multiselect">Select TEKS (Ctrl/Cmd+Click for multiple):</label>
       <select id="teks-multiselect" multiple size="10"></select>
