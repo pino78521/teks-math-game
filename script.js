@@ -40,7 +40,6 @@ let correctAnswers = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   const teksMultiSelect = document.getElementById("teks-multiselect");
-
   for (const strand in teksByStrand) {
     teksByStrand[strand].forEach(teks => {
       const option = document.createElement("option");
@@ -56,7 +55,6 @@ function startGame() {
   selectedTEKS = selectedOptions.map(opt => opt.value);
   const questionCount = parseInt(document.getElementById("question-count").value);
 
-  // Build pool of available questions
   let pool = [];
   selectedTEKS.forEach(teks => {
     if (questions[teks]) {
@@ -64,7 +62,6 @@ function startGame() {
     }
   });
 
-  // Shuffle and select questions
   pool.sort(() => 0.5 - Math.random());
   gameQuestions = pool.slice(0, questionCount);
 
@@ -82,6 +79,7 @@ function startGame() {
 
 function showQuestion() {
   const q = gameQuestions[currentQuestionIndex];
+  document.getElementById("progress").textContent = `Question ${currentQuestionIndex + 1} of ${gameQuestions.length}`;
   document.getElementById("question-text").textContent = q.question;
   document.getElementById("student-answer").value = "";
   document.getElementById("feedback").textContent = "";
