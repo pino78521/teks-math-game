@@ -1,0 +1,42 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+  margin: 0;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+h1, h3 {
+  text-align: center;
+  color: #005a9c;
+}
+select, input[type="number"], input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 16px;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.primary { background-color: #005a9c; color: white; }
+.submit { background-color: #28a745; color: white; }
+.download { background-color: #17a2b8; color: white; }
+.btn:hover {
+  opacity: 0.9;
+}
+#feedback {
+  font-weight: bold;
+}

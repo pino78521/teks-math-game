@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TEKS Math Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>TEKS Math Game</h1>
+
+    <div id="student-info">
+      <h3>Student Information</h3>
+      <label for="student-name">Name:</label>
+      <input type="text" id="student-name" placeholder="Enter your name" />
+
+      <label for="student-id">Student ID:</label>
+      <input type="text" id="student-id" placeholder="Enter your ID" />
+
+      <button class="btn primary" onclick="goToTeacherSettings()">Continue</button>
+    </div>
+
+    <div id="teacher-settings" style="display:none;">
+      <h3>Teacher Settings</h3>
+      <label for="teks-multiselect">Select TEKS (Ctrl/Cmd+Click for multiple):</label>
+      <select id="teks-multiselect" multiple size="10"></select>
+
+      <label for="question-count">Number of Questions:</label>
+      <input type="number" id="question-count" value="20" min="1" max="20" />
+
+      <button class="btn primary" onclick="startGame()">Start Game</button>
+    </div>
+
+    <div id="question-container" style="display:none;">
+      <p id="progress"></p>
+      <p id="question-text"></p>
+      <input type="text" id="student-answer" placeholder="Type your answer" />
+      <button class="btn submit" onclick="submitAnswer()">Submit Answer</button>
+      <p id="feedback"></p>
+    </div>
+
+    <div id="report-section" style="display:none;">
+      <p id="score-summary"></p>
+      <button class="btn download" onclick="resetGame()">OK</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
