@@ -1,7 +1,5 @@
-
 let studentName = "";
 let studentId = "";
-let teacherEmail = "";
 
 const teksByStrand = {
   "Numerical Representations & Relationships": ["6.2A", "6.2B", "6.2C", "6.2D", "6.3A", "6.3B", "6.3C", "6.3D"],
@@ -43,10 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function goToTeacherSettings() {
   studentName = document.getElementById("student-name").value.trim();
   studentId = document.getElementById("student-id").value.trim();
-  teacherEmail = document.getElementById("teacher-email").value.trim();
 
-  if (!studentName || !studentId || !teacherEmail) {
-    alert("Please fill in all fields.");
+  if (!studentName || !studentId) {
+    alert("Please fill in both name and ID.");
     return;
   }
 
@@ -115,14 +112,21 @@ function submitAnswer() {
 function showScore() {
   document.getElementById("question-container").style.display = "none";
   document.getElementById("report-section").style.display = "block";
-  document.getElementById("score-summary").textContent = `Final Score: ${correctAnswers}/${gameQuestions.length}`;
+  document.getElementById("score-summary").textContent = `Final Score for ${studentName} (${studentId}): ${correctAnswers}/${gameQuestions.length}`;
 }
 
-function downloadPDF() {
-  const summary = `TEKS Math Game Report\nName: ${studentName}\nStudent ID: ${studentId}\nTeacher Email: ${teacherEmail}\nScore: ${correctAnswers}/${gameQuestions.length}\n\n`;
-  const blob = new Blob([summary], { type: "application/pdf" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "teks_math_game_report.pdf";
-  link.click();
+function resetGame() {
+  studentName = "";
+  studentId = "";
+  selectedTEKS = [];
+  gameQuestions = [];
+  currentQuestionIndex = 0;
+  correctAnswers = 0;
+
+  document.getElementById("student-name").value = "";
+  document.getElementById("student-id").value = "";
+  document.getElementById("teacher-settings").style.display = "none";
+  document.getElementById("question-container").style.display = "none";
+  document.getElementById("report-section").style.display = "none";
+  document.getElementById("student-info").style.display = "block";
 }
