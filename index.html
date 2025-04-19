@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEKS Math Game</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      margin-top: 40px;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 600px;
+    }
+    h1 {
+      color: #007acc;
+      text-align: center;
+    }
+    select, input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #007acc;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .question-box, .score-box {
+      margin-top: 20px;
+    }
+    .feedback {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎮 TEKS Math Game</h1>
+    <label for="studentName">Student Name:</label>
+    <input type="text" id="studentName" placeholder="Enter your name" />
+
+    <label for="strand">Select Strand:</label>
+    <select id="strand">
+      <option value="">-- Choose Strand --</option>
+      <option value="Numerical">Numerical Representations & Relationships</option>
+      <option value="Algebraic">Computation & Algebraic Relationships</option>
+      <option value="Geometry">Geometry and Measurement</option>
+      <option value="Data">Data Analysis and Financial Literacy</option>
+    </select>
+
+    <label for="teks">Select TEKS:</label>
+    <select id="teks">
+      <option value="">-- Choose TEKS --</option>
+    </select>
+
+    <button onclick="startGame()">Start Game</button>
+
+    <div class="question-box" id="questionBox" style="display: none;">
+      <p id="question"></p>
+      <input type="text" id="answer" placeholder="Your answer" />
+      <button onclick="submitAnswer()">Submit</button>
+      <div class="feedback" id="feedback"></div>
+    </div>
+
+    <div class="score-box" id="scoreBox" style="display: none;">
+      <p id="score"></p>
+      <button onclick="window.print()">🖨️ Print Report</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
